@@ -1,0 +1,212 @@
+@media (min-width: 0) {
+  .responsive-testBulma {
+    color: red;
+  }
+}
+
+@media (min-width: 769px) {
+  .responsive-testBulma {
+    color: blue;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-testBulma {
+    color: green;
+  }
+}
+
+@media (min-width: 1216px) {
+  .responsive-testBulma {
+    color: purple;
+  }
+}
+
+@media (min-width: 0) {
+  .responsive-test {
+    color: red;
+  }
+}
+
+@media (min-width: 480px) {
+  .responsive-test {
+    color: blue;
+  }
+}
+
+@media (min-width: 720px) {
+  .responsive-test {
+    color: green;
+  }
+}
+
+@media (min-width: 960px) {
+  .responsive-test {
+    color: purple;
+  }
+}
+
+@media (min-width: 1200px) {
+  .responsive-test {
+    color: orange;
+  }
+}
+
+@media (min-width: 1400px) {
+  .responsive-test {
+    color: pink;
+  }
+}
+
+.disp-none {
+  display: none;
+}
+
+.laptop {
+  max-width: 100%;
+}
+
+@media screen and (min-width: 600px) and (max-width: 767px) {
+  .laptop {
+    max-width: 300px;
+  }
+}
+
+.is-size-8 {
+  font-size: 0.6rem;
+}
+
+.ts {
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.7);
+}
+
+.navbar #navbarMisc a {
+  cursor: default;
+}
+
+nav img {
+  border-radius: 4px;
+  box-shadow: 4px 3px 4px #aaaaaa;
+}
+
+nav .navbar-item {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+#hero {
+  background-image: url("../../img/abstract-luxury-gradient-blue-background.jpg");
+  /* background: url('img/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette.jpg'); */
+  /* background: url('img/hero-bg.png'); */
+  /* height: 600px; */
+  /* height: 1079px; */
+  background-position-x: center;
+  background-size: cover;
+}
+
+#hero .navbar.is-transparent {
+  background-color: transparent;
+}
+
+.service-buttons {
+  justify-content: center !important;
+}
+
+/* 
+.logos:before {
+  content: '';
+  position: absolute;
+  width: 50%;
+  left: 25%;
+  top: 0;
+  border: 1px solid red;
+  border-top: 1px solid #ebebeb;
+} */
+#contact {
+  background: url("../../img/abstract-luxury-gradient-blue-background-studio-banner.jpg");
+  background-size: cover;
+}
+
+.grid1 p.title {
+  font-size: 1.2rem;
+}
+
+@media screen and (max-width: 840px) {
+  .h-arch {
+    display: none;
+  }
+}
+
+.navbar.has-shadow,
+header.has-shadow {
+  box-shadow: 0 12px 0 0 white;
+}
+
+.Light-Blue-100alpha {
+  background: rgba(179, 229, 252, 0.9);
+}
+
+.Light-Blue-50 {
+  background: #e1f5fe;
+}
+
+.Light-Blue-100 {
+  background: #b3e5fc;
+}
+
+.Light-Blue-200 {
+  background: #81d4fa;
+}
+
+.Light-Blue-500 {
+  background: #03a9f4;
+}
+
+.Light-Blue-600 {
+  background: #039be5;
+}
+
+.Light-Blue-700 {
+  background: #0288d1;
+}
+
+.Light-Blue-900 {
+  background: #01579b;
+}
+
+.Light-Blue-900alpha {
+  /* background: rgb(1, 87, 155) */
+  background: rgba(1, 87, 155, 0.85);
+}
+
+.Light-Blue-A200 {
+  background: #40c4ff;
+}
+
+.Light-Green-700T {
+  color: #558b2f;
+}
+
+.card {
+  transition: all 0.5s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+
+.chestnut-light {
+  color: #947600;
+}
+
+.lightcoral {
+  color: #f08080;
+}
+
+.gold {
+  color: gold;
+}
+
+.goldenrod {
+  color: goldenrod;
+}

@@ -1,0 +1,108 @@
+
+
+styles_bulma\bulma_v0.9.3_scss\sass\utilities\extends.scss
+    @import "mixins";
+
+    %control {
+      @include control;
+    }
+
+    %unselectable {
+      @include unselectable;
+    }
+
+    %arrow {
+      @include arrow;
+    }
+
+    %block {
+      @include block;
+    }
+
+    %delete {
+      @include delete;
+    }
+
+    %loader {
+      @include loader;
+    }
+
+    %overlay {
+      @include overlay;
+    }
+
+    %reset {
+      @include reset;
+    }
+
+
+
+
+styles_bulma\bulma_v0.9.3_scss\sass\utilities\extends.scss の各項目を、以下のscssファイルの最後に追加
+
+elements\button.scss
+components\pagination.scss
+form\shared.scss
+    %control {
+      @include control;
+    }
+
+
+breadcrumb.scss
+elements\button.scss
+components\pagination.scss
+components\tabs.scss 
+    %unselectable {
+      @include unselectable;
+    }
+
+hero.scss
+components\modal.scss
+position.scss
+elements\image.scss
+    %overlay {
+      @include overlay;
+    }
+
+components\breadcrumb.scss
+helpers\other.scss
+    %unselectable {
+      @include unselectable;
+    }
+
+
+components\navbar.scss
+    %reset {
+      @include reset;
+    }
+
+
+components\navbar.scss
+    %arrow {
+      @include arrow;
+    }
+
+elements\other.scss
+    %loader {
+      @include loader;
+    }
+
+components\modal.scss
+elements\other.scss
+    %delete {
+      @include delete;
+    }
+
+
+elements\icon.scss
+    %ltr {
+      @include ltr;
+    }
+/* extends.scss にも
+  %ltr {
+    @include ltr;
+  }　を追加
+*/
+
+
+その他、各@変数を追加

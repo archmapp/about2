@@ -1,0 +1,121 @@
+$breakpointsBulma: (
+	'mobile_': 0,
+	// "mobile": up to 768px,
+	'tablet_': 769px,
+	'desktop_': 1024px,
+	'widescreen_': 1216px,
+);
+
+$breakpoints: (
+	'xs': 0,
+	'sm': 480px,
+	'md': 720px,
+	'lg': 960px,
+	'xl': 1200px,
+);
+
+// @each $key, $val in $breakpointsBulma {
+// 	@mixin #{$key} { //Error: invalid name in @mixin definition
+// 		@media (min-width: map-get($breakpointsBulma, "#{$key}")) {
+// 			@content;
+// 		}
+// 	}
+// }
+
+// $breakpointsBulma
+@mixin mobile_ {
+	@media (min-width: map-get($breakpointsBulma, 'mobile_')) {
+		@content;
+	}
+}
+
+@mixin tablet_ {
+	@media (min-width: map-get($breakpointsBulma, 'tablet_')) {
+		@content;
+	}
+}
+
+@mixin desktop_ {
+	@media (min-width: map-get($breakpointsBulma, 'desktop_')) {
+		@content;
+	}
+}
+
+@mixin widescreen_ {
+	@media (min-width: map-get($breakpointsBulma, 'widescreen_')) {
+		@content;
+	}
+}
+
+// $breakpoints
+@mixin xs {
+	@media (min-width: map-get($breakpoints, 'xs')) {
+		@content;
+	}
+}
+
+@mixin sm {
+	@media (min-width: map-get($breakpoints, 'sm')) {
+		@content;
+	}
+}
+
+@mixin md {
+	@media (min-width: map-get($breakpoints, 'md')) {
+		@content;
+	}
+}
+
+@mixin lg {
+	@media (min-width: map-get($breakpoints, 'lg')) {
+		@content;
+	}
+}
+
+@mixin xl {
+	@media (min-width: map-get($breakpoints, 'xl')) {
+		@content;
+	}
+}
+
+@mixin breakpoint($bp: 0) {
+	@media (min-width: $bp) {
+		@content;
+	}
+}
+
+.responsive-testBulma {
+	@include mobile_ {
+		color: red;
+	}
+	@include tablet_ {
+		color: blue;
+	}
+	@include desktop_ {
+		color: green;
+	}
+	@include widescreen_ {
+		color: purple;
+	}
+}
+
+.responsive-test {
+	@include xs {
+		color: red;
+	}
+	@include sm {
+		color: blue;
+	}
+	@include md {
+		color: green;
+	}
+	@include lg {
+		color: purple;
+	}
+	@include xl {
+		color: orange;
+	}
+	@include breakpoint(1400px) {
+		color: pink;
+	}
+}

@@ -1,0 +1,160 @@
+
+
+https://www.site-convert.com/archives/1451
+
+JavaScriptで画面幅を取得して切り替える
+    if (window.matchMedia('(max-width: 767px)').matches) {
+        //スマホ処理
+    } else if (window.matchMedia('(min-width:768px)').matches) {
+        //PC処理
+    }
+
+~~~~~
+    function switchByWidth(){
+        if (window.matchMedia('(max-width: 767px)').matches) {
+            //スマホ処理
+        } else if (window.matchMedia('(min-width:768px)').matches) {
+            //PC処理
+        }
+    }
+
+    //ロードとリサイズの両方で同じ処理を付与する
+    window.onload = switchByWidth;
+    window.onresize = switchByWidth;
+
+
+
+https://developer.mozilla.org/ja/docs/Learn/CSS/CSS_layout/Responsive_Design
+
+レスポンシブデザイン
+
+
+
+https://office-ing.net/blog/responsive-javascript-matchmedia/
+
+
+JavaScriptのmatchMedia()を使ったレスポンシブ
+そこで、JavaScriptのmatchMedia()の登場です。
+
+    $(function(){
+      //ブレークポイントで発火する処理
+      var mql = window.matchMedia('screen and (min-width: 769px)');
+      function checkBreakPoint(mql) {
+        //スマホ向け
+        if (!mql.matches) {
+          responsive_iframe(true);	//YouTubeのレスポンシブ対応
+          //▼追加があればここに記述する
+          //▲追加があればここに記述する
+        }
+        //PC向け
+        else {
+          responsive_iframe(false);	//YouTubeのレスポンシブ対応
+          //▼追加があればここに記述する
+          //▲追加があればここに記述する
+        }
+      }
+      // ブレイクポイントの瞬間に発火
+      mql.addListener(checkBreakPoint);
+      // 初回の実行
+      checkBreakPoint(mql);
+
+      //YouTubeのレスポンシブ対応
+      function responsive_iframe(unwrap) {
+        var iframes	= $(document).find('iframe[src^="https://www.youtube.com/embed"]');
+        var aspect	= 56.25;	//デフォルトのアスペクト比
+        var w				= 0;			//iframeのwidth
+        var h				= 0;			//iframeのheight
+        var wrapper	= '<div class="embed-responsive" style="padding-top:[aspect]%">';
+        $(iframes).each(function(){
+          //レスポンシブなラッパーで囲む（スマホ向け）
+          if (unwrap) {
+            w = $(this).attr('width');
+            h = $(this).attr('height');
+            //widthとheightに基いてアスペクト比を計算
+            if (w!=undefined && h!=undefined) {
+              aspect = (h/w) * 100;
+            }
+            //CSSにアスペクト比を反映
+            wrapper = wrapper.replace('[aspect]', aspect);
+            //CSSを適用
+            if(!$(this).parent().hasClass('frame-wrapper')) {
+              $(this).wrap(wrapper);
+            }
+          }
+          //ラッパーを削除（PC向け）
+          else {
+            if($(this).parent().hasClass('embed-responsive')) {
+              $(this).unwrap();
+            }
+          }
+        });
+      }
+    });
+
+【3行目】
+matchMedia()は、ブラウザのウィンドウに相当するwindowオブジェクトが持つメソッドで、引数にCSSのメディアクエリーと同等の条件式を記述すると、MediaQueryListというオブジェクトを返します。CSSのメディアクエリーのJavaScript版という理解でよいでしょう。ここではMediaQueryListオブジェクトをmqlという名前の変数に保存しています。あとで何度も使うためです。
+
+【6行目】
+MediaQueryListオブジェクトは、指定された条件式にマッチしたかどうかを表すmatchesプロパティを持っています。これを参照すれば、画面サイズが条件にマッチしているかどうかを検出できます。
+
+【19行目】
+MediaQueryListオブジェクトは、指定された条件式が「成立⇒不成立」または「不成立⇒成立」に変わったときにだけ通知してくれる機能を持っています。プログラミングにおいて、何らかのタイミングで通知してくれる仕組みを「イベント」と呼び、イベントを通知する仲介役となる関数を「イベントリスナー」と呼びます。
+
+ここでは、MediaQueryListオブジェクトのaddListenerメソッドを使って、checkBreakPoint()という自作関数をイベントリスナーとして登録しています。すると、ブラウザのウィンドウサイズが769pxを超えた瞬間と、下回った瞬間にだけ、checkBreakPoint()関数がブラウザによって自動的に起動されます。
+
+【4行目】
+そして、checkBreakPoint()関数にはあらかじめ関数の外側で保存しておいたMediaQueryListオブジェクトを引数に指定すれば、関数の中で「スマホの画面サイズに変わったのか」「PCの画面サイズに変わったのか」をmatchesプロパティによって分岐できます。これで無駄のないレスポンシブなJavaScriptを実行する仕組ができました。
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+https://qiita.com/amamamaou/items/a29b29f5267196a5e4ea
+
+window.matchMedia で判定
+window.matchMedia はCSSと同じ指定ができるメソッドです。返り値は [Object MediaQueryList] になります。
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // @media screen and (max-width: 780px) と同じ
+      var mql = window.matchMedia('screen and (max-width: 780px)');
+
+      function checkBreakPoint(mql) {
+        if (mql.matches) {
+          // スマホ向け
+        } else {
+          // PC向け
+        }
+      }
+
+      // ブレイクポイントの瞬間に発火
+      mql.addListener(checkBreakPoint);
+
+      // 初回チェック
+      checkBreakPoint(mql);
+    });
+window.matchMedia はメディアクエリの条件から判定するだけでなく、MediaQueryList.addListener() で「クエリを通知する」事ができます。
+クエリを通知する、とは、要するに メディアクエリの条件に合うようになった or 合わなくなった 瞬間に実行するという事です。
+
+メリット
+    CSSと同じ書式で指定することができる。
+    判定方法が簡潔。
+    切り替わる時に一度だけ実行できる。
+    onresize を使わないので、無駄な関数処理がない。
+デメリット
+    Internet Explorer 9 は対応していない。（CSSのメディアクエリは使える）
+    おまけ：スマホの向きが変わった時に実行する方法
+    window.matchMedia を使えばCSSと同じくスマホの向きが変わっても簡単に対応できます。
+
+    var mql = window.matchMedia('(orientation: portrait)');
+
+    function orientationChange(mql) {
+      if (mql.matches) {
+        // 画面が縦長い時
+      } else {
+        // 画面が横長い時
+      }
+    }
+
+    orientation.addListener(orientationChange);
+    orientationChange(mql);
+注意しないといけないのが、(orientation: portrait) は単純にウィンドウの縦横比をみているだけなので、PCのブラウザでも縦長いウィンドウにした場合にも適用されてしまいます。
+スマホ表示の時のみなど、上手く条件分けしてやらないといけないですね。
+
