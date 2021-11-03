@@ -4,6 +4,12 @@
 	display: none;
 }
 
+.same-h .column {
+  display: flex;
+  align-items: stretch;
+  // is-align-items-stretch
+}
+
 .laptop {
 	max-width: 100%;
 	// max-width: 300px;

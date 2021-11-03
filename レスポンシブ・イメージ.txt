@@ -1,0 +1,39 @@
+https://parashuto.com/rriver/responsive-web/picture-srcset-use-case
+
+
+
+・サイズ変更のみの場合はimgに img, srcset属性を使う（画像サイズ等）
+    解像度、ファイルサイズ
+
+・アートディレクションを入れる場合のみpictureを使う　（クリップ等）
+    アートディレクション
+    
+  <picture>
+				<source
+					media="(min-width: 520px)"
+          ~~~~~
+          srcset="images/cropped.jpg 640w"  <--   hi-dpiも追加
+					sizes="100vw"  <--   300px: 高解像度対応にしないよう、サイズを教える
+                         <--  　full width ではないこと
+                         <--  　media query も追加可
+        />
+        ...
+        <img>タグは、mobileファーストで準備するとよい。
+
+
+
+レスポンシブ・イメージの2つの記述方法の違いは、
+  ・img, srcsetではブラウザに対して状況に応じた選択の余地を与えているのに対し、
+
+  ・pictureではブラウザに判断の余地がないところにあります。
+
+
+
+
+<!-- 
+  *** img	srcset sizes は、Firefoxのみで動いた。
+ -->
+
+chromeは、シークレットモードで確認してみる。
+一度largeをダウンロードしたら、わざわざsmallをダウンロードする必要はない、
+という方針。

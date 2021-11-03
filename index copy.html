@@ -1,3 +1,4 @@
+<!-- C:\Users\Owner\Desktop\Nodejs\Bulma\CompanyWebsite\index Bulma.html -->
 <!-- https://www.blog.duomly.com/how-to-build-company-website-with-bulma-css/ -->
 <!-- https://www.youtube.com/watch?v=hiTxsjxHIMY -->
 
@@ -38,17 +39,15 @@
 			src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
 		></script>
 
-		
 		<style>
 			* {
 				/* box-sizing: border-box; */
 			}
 
-			#mWidth .box {
-				min-width: 200px;
+			#mWidth .card {
+				min-width: 250px;
 			}
 		</style>
-
 	</head>
 
 	<body class="has-background-info-light" style="width: 70%; margin: 0 auto">
@@ -56,15 +55,15 @@
 		<header class="section Light-Blue-900 py-3 has-text-white">
 			<div class="container">
 				<div class="columns is-mobile">
-					<div class="column is-6 h-arch">
+					<div class="column is-5 h-arch">
 						<a
 							class="has-text-primary-light is-flex is-align-items-center"
 							href="https://www.archmapp.tech/"
 							><img src="./img/faviconBulma.png" alt="" />&nbsp; archmapp</a
 						>
 					</div>
-					<div class="column has-text-right is-size-4">
-						<span class="ts">アーキエムアップのご紹介</span>
+					<div class="column has-text-centered is-size-4">
+						<span class="ts has-tooltip-bottom has-tooltip-warning has-text-weight-bold" data-tooltip="活動・紹介 About2">アーキエムアップのご紹介</span>
 					</div>
 				</div>
 			</div>
@@ -128,8 +127,8 @@
 
 		<section class="section">
 			<div class="container has-text-centered">
-				<div id="mWidth" class="columns is-multiline">
-					<!-- <div class="columns pt-6 is-vcentered Light-Blue-700 mt-2 px-3"> -->
+				<div id="mWidth" class="columns is-multiline same-h">
+				<!-- <div id="mWidth" class="columns is-multiline is-vcentered"> -->
 					<div class="column">
 						<div class="card">
 							<div class="card-content Light-Blue-50">
@@ -140,36 +139,6 @@
 								</div>
 								<p class="title is-size-6">Webアプリ</p>
 								<div class="content">Javascript<br />HTML<br />CSS</div>
-							</div>
-							<footer class="card-footer">
-								<span
-									class="
-										card-footer-item
-										has-text-black
-										is-flex is-align-items-center
-									"
-									><img
-										src="./img/faviconBulma.png"
-										alt=""
-									/>&nbsp;archmapp</span
-								>
-							</footer>
-						</div>
-					</div>
-					<div class="column">
-						<div class="card">
-							<div class="card-content Light-Blue-50">
-								<div class="has-text-centered">
-									<span
-										is-flex
-										is-align-items-center
-										class="icon is-size-2 py-4 my-3"
-									>
-										<i class="fas fa-server has-text-black-ter"></i>
-									</span>
-								</div>
-								<p class="title is-size-6">フレームワーク・<br />ライブラリ</p>
-								<div class="content">React<br />Angular<br />Typescript</div>
 							</div>
 							<footer class="card-footer">
 								<span
@@ -212,134 +181,6 @@
 							</footer>
 						</div>
 					</div>
-				</div>
-				<div class="columns pt-6 pb-4 is-vcentered Light-Blue-600 px-3">
-					<div class="column">
-						<div class="card">
-							<div class="card-content Light-Blue-50">
-								<div class="has-text-centered">
-									<span class="icon is-size-2 py-4 my-3">
-										<i class="fas fa-seedling lightcoral"></i>
-									</span>
-								</div>
-								<p class="title is-size-6">関連項目</p>
-								<div class="content">
-									Mean Stack<br />Mern Stack<br />
-									Express<br />MongoDB
-								</div>
-							</div>
-							<footer class="card-footer">
-								<span
-									class="
-										card-footer-item
-										has-text-black
-										is-flex is-align-items-center
-									"
-									><img
-										src="./img/faviconBulma.png"
-										alt=""
-									/>&nbsp;archmapp</span
-								>
-							</footer>
-						</div>
-					</div>
-					<div class="column">
-						<div class="card">
-							<div class="card-content Light-Blue-50">
-								<div class="has-text-centered">
-									<span class="icon is-size-2 py-4 my-3">
-										<i class="fas fa-users Light-Green-700T"></i>
-									</span>
-								</div>
-								<p class="title is-size-6">エンジニア</p>
-								<!-- <p class="title is-size-6">エンジニア</p> -->
-								<div class="content">
-									<span class="has-text-grey-darker has-text-weight-medium"
-										>Front-end engineer</span
-									><br /><small class="ms8">フロントエンドエンジニア</small>
-									<p class="mt-1">
-										<span class="has-text-grey-darker has-text-weight-medium"
-											>Full-Stack Developer</span
-										><br /><small class="ms8">フルスタックディベロッパー</small>
-									</p>
-								</div>
-							</div>
-							<footer class="card-footer">
-								<span
-									class="
-										card-footer-item
-										has-text-black
-										is-flex is-align-items-center
-									"
-									><img
-										src="./img/faviconBulma.png"
-										alt=""
-									/>&nbsp;archmapp</span
-								>
-							</footer>
-						</div>
-					</div>
-					<div class="column is-4">
-						<div class="card">
-							<div class="card-content Light-Blue-50">
-								<div class="has-text-centered">
-									<span class="icon is-size-2 py-4 my-3">
-										<i class="fas fa-funnel-dollar goldenrod"></i>
-									</span>
-								</div>
-								<p class="title is-size-6">サービス</p>
-								<div class="content ms8">
-									プログラマー<br />の<br />育成・教育！
-								</div>
-							</div>
-							<footer class="card-footer">
-								<span
-									class="
-										card-footer-item
-										has-text-black
-										is-flex is-align-items-center
-									"
-									><img
-										src="./img/faviconBulma.png"
-										alt=""
-									/>&nbsp;archmapp</span
-								>
-							</footer>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<section class="section">
-			<div class="container has-text-centered">
-				<div class="columns pt-6 is-vcentered Light-Blue-700 mt-2 px-3">
-					<div class="column">
-						<div class="card">
-							<div class="card-content Light-Blue-50">
-								<div class="has-text-centered">
-									<span class="icon is-size-2 py-4 my-3">
-										<i class="fas fa-code has-text-grey-light"></i>
-									</span>
-								</div>
-								<p class="title is-size-6">Webアプリ</p>
-								<div class="content">Javascript<br />HTML<br />CSS</div>
-							</div>
-							<footer class="card-footer">
-								<span
-									class="
-										card-footer-item
-										has-text-black
-										is-flex is-align-items-center
-									"
-									><img
-										src="./img/faviconBulma.png"
-										alt=""
-									/>&nbsp;archmapp</span
-								>
-							</footer>
-						</div>
-					</div>
 					<div class="column">
 						<div class="card">
 							<div class="card-content Light-Blue-50">
@@ -352,8 +193,8 @@
 										<i class="fas fa-server has-text-black-ter"></i>
 									</span>
 								</div>
-								<p class="title is-size-6">フレームワーク・<br />ライブラリ</p>
-								<div class="content">React<br />Angular<br />Typescript</div>
+								<p class="title is-size-7">フレームワーク・<br />ライブラリ</p>
+								<div class="content mt-4">React<br />Angular<br />Typescript</div>
 							</div>
 							<footer class="card-footer">
 								<span
@@ -371,34 +212,6 @@
 						</div>
 					</div>
 					<div class="column">
-						<div class="card">
-							<div class="card-content Light-Blue-50">
-								<div class="has-text-centered">
-									<span class="icon is-size-2 py-4 my-3">
-										<i class="fas fa-paint-brush has-text-grey"></i>
-									</span>
-								</div>
-								<p class="title is-size-6">効率化</p>
-								<div class="content">webpack<br />Sass<br />Bulma</div>
-							</div>
-							<footer class="card-footer">
-								<span
-									class="
-										card-footer-item
-										has-text-black
-										is-flex is-align-items-center
-									"
-									><img
-										src="./img/faviconBulma.png"
-										alt=""
-									/>&nbsp;archmapp</span
-								>
-							</footer>
-						</div>
-					</div>
-				</div>
-				<div class="columns pt-6 pb-4 is-vcentered Light-Blue-600 px-3">
-					<div class="column is-3">
 						<div class="card">
 							<div class="card-content Light-Blue-50">
 								<div class="has-text-centered">
@@ -427,7 +240,7 @@
 							</footer>
 						</div>
 					</div>
-					<div class="column is-5">
+					<div class="column">
 						<div class="card">
 							<div class="card-content Light-Blue-50">
 								<div class="has-text-centered">
@@ -462,7 +275,7 @@
 							</footer>
 						</div>
 					</div>
-					<div class="column is-4">
+					<div class="column">
 						<div class="card">
 							<div class="card-content Light-Blue-50">
 								<div class="has-text-centered">
@@ -473,8 +286,8 @@
 								<p class="title is-size-6">サービス</p>
 								<div class="content ms8">
 									プログラマー<br />の<br />育成・教育！
+									<div class="mt-1">非常勤講師</div>
 								</div>
-								<div>非常勤講師</div>
 							</div>
 							<footer class="card-footer">
 								<span
@@ -499,15 +312,19 @@
 			<div class="container">
 				<div class="columns is-nogap">
 					<div class="column is-6">
-						<div class="card mb-5">
+						<div class="card mb-6">
 							<header class="card-header has-background-info">
 								<p class="card-header-title">コンタクト</p>
 							</header>
 							<div
-								class="card-content has-background-info-light has-text-centered"
+								class="
+									card-content
+									has-background-info-light has-text-centered
+									py-5
+								"
 							>
 								<i class="fas fa-envelope-square"></i>
-								<span class="has-text-black has-background-info-light"
+								<span class="has-text-black has-background-info-light is-size-4"
 									>&nbsp;archmapp@i.softbank.jp</span
 								>
 							</div>
@@ -561,7 +378,7 @@
 						// スマホ向け
 						ms2.classList.add('is-size-4')
 						ms5.classList.add('is-size-7')
-						ms8.forEach((s) => s.classList.add('is-size-8'))
+						// ms8.forEach(s => s.classList.add('is-size-8'))
 						is10.classList.add('disp-none')
 					} else {
 						// PC向け
