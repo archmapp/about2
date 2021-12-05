@@ -64,7 +64,6 @@
 
 .same-h .column {
   display: flex;
-  align-items: stretch;
 }
 
 .laptop {
