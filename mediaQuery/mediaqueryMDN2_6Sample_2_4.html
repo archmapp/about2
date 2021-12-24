@@ -1,0 +1,126 @@
+<!-- https://developer.mozilla.org/ja/docs/Web/API/MediaQueryList -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>MediaQueryList example</title>
+		<style>
+			html {
+				font-family: sans-serif;
+				background-color: white;
+			}
+
+			body {
+				padding: 20px;
+				margin: 10px;
+				border: 10px solid black;
+			}
+
+			h1,
+			p {
+				text-align: center;
+			}
+		</style>
+
+		<script src="./shortBulma$$.js"></script>
+	</head>
+
+	<body>
+		<h1>matchMedia test</h1>
+
+		<p></p>
+	</body>
+
+	<script>
+		let para = $$q('p')
+
+		// (max-width: 768px)
+		// MediaQueryList, MediaQueryListEvent
+		function screenCheck(m) {
+			// console.log(m) // 87
+			// console.log(m.media.match(/[0-9]+/g))
+			const mm = m.media.match(/[0-9]+/g)
+			const x1 = window.innerWidth
+			// document.documentElement.clientWidth
+			// x1 = +mm[0]
+
+			// blue: default
+			if (m.matches) {
+				// max型のときは、こちらは				// max型のときは、こちらはｎ+1個
+
+				para.textContent = `(max-width: ${x1}px)`
+				// max-widthのときは、↓この順序
+				if (x1 <= 500) {
+					// console.log(window.innerWidth)
+					document.body.style.backgroundColor = 'red'
+					document.body.style.fontSize = '0.3rem'
+					return
+				}
+				if (x1 <= 700) {
+					document.body.style.backgroundColor = 'green'
+					document.body.style.fontSize = '0.6rem'
+					return
+				}
+				if (x1 <= 900) {
+					document.body.style.backgroundColor = 'yellow'
+					document.body.style.fontSize = '1rem'
+					return
+				}
+				if (x1 <= 1024) {
+					document.body.style.backgroundColor = 'blue'
+					document.body.style.fontSize = '2rem'
+					return
+				}
+				console.log('screenCheck between')
+			} else {
+				// max型のときは、こちらはｎ+1個
+				para.textContent = `(${x1}px < innerWidth)`
+				// サイズを変更したときなので、順序不問
+				// matchしないときなので、右側（大きい	）
+				// document.body.style.fontSize = '0.3rem'
+				if (1024 <= x1) {
+					document.body.style.backgroundColor = 'pink'
+					document.body.style.fontSize = '2rem'
+					return
+				}
+				if (900 <= x1) {
+					document.body.style.backgroundColor = 'blue'
+					document.body.style.fontSize = '2rem'
+					return
+				}
+				if (700 <= x1) {
+					// 1024~
+					document.body.style.backgroundColor = 'yellow'
+					document.body.style.fontSize = '1rem'
+					return
+				}
+				if (500 <= x1) {
+					// 768~1024
+					document.body.style.backgroundColor = 'green'
+					document.body.style.fontSize = '0.6rem'
+					return
+				}
+
+				document.body.style.backgroundColor = 'red'
+				document.body.style.fontSize = '0.3rem'
+			}
+		}
+
+		// function set_mql(screenCheck, ...x) {
+		// 	let mql
+		// 	for (let i = 0; i <= x.length - 1; i++) {
+		// 		mql = window.matchMedia(`(max-width: ${x[i]}px)`)
+		// 		screenCheck(mql)
+		// 		// mql.addEventListener('change', screenCheck, false)
+		// 		$$doe(mql, screenCheck, 'change')
+		// 		// $$doe(mql, screenCheck, 'change')
+		// 	}
+		// }
+		// set_mql(screenCheck, 500, 700, 900)
+
+		// max型で４個
+		$$set_mql(screenCheck, 500, 700, 900, 1024)
+	</script>
+</html>

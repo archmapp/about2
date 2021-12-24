@@ -1,0 +1,103 @@
+<!-- https://developer.mozilla.org/ja/docs/Web/API/MediaQueryList -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>MediaQueryList example</title>
+		<style>
+			html {
+				font-family: sans-serif;
+				background-color: white;
+			}
+
+			body {
+				padding: 20px;
+				margin: 10px;
+				background-color: blue;
+				border: 10px solid black;
+			}
+
+			h1,
+			p {
+				text-align: center;
+			}
+
+			p {
+				font-size: 1.3rem;
+			}
+		</style>
+
+		<script src="./shortBulma$$.js"></script>
+	</head>
+
+	<body>
+		<h1>matchMedia test</h1>
+
+		<p></p>
+	</body>
+
+	<script>
+		let para = $$q('p')
+
+		// (max-width: 768px)
+		// MediaQueryList, MediaQueryListEvent
+		function screenCheck(m) {
+			console.log(m) // 87
+			console.log(m.media.match(/[0-9]+/g))
+			const mm = m.media.match(/[0-9]+/g)
+			x1 = +mm[0]
+
+			// blue: default
+			if (m.matches) {
+				para.textContent = `(max-width: ${x1}px)`
+				// max-widthのときは、↓この順序
+				if (x1 === 1024) {
+					document.body.style.backgroundColor = 'yellow'
+					return
+				}
+				if (x1 === 768) {
+					document.body.style.backgroundColor = 'green'
+					return
+				}
+				if (x1 === 600) {
+					console.log(window.innerWidth)
+					document.body.style.backgroundColor = 'red'
+					return
+				}
+				console.log('screenCheck between')
+			} else {
+				para.textContent = `(${x1}px < width)`
+				// サイズを変更したときなので、順序不問
+				if (x1 === 600) {
+					console.log(window.innerWidth)
+					document.body.style.backgroundColor = 'green'
+					return
+				}
+				if (x1 === 768) {
+					document.body.style.backgroundColor = 'yellow'
+					return
+				}
+				if (x1 === 1024) {
+					document.body.style.backgroundColor = 'blue'
+					return
+				}
+				para.textContent = 'screenCheck OUT'
+			}
+		}
+
+		function set_mql(screenCheck, ...x) {
+			let mql
+			for (let i = 0; i <= x.length - 1; i++) {
+				mql = window.matchMedia(`(max-width: ${x[i]}px)`)
+				screenCheck(mql, x[i])
+				// mql.addEventListener('change', screenCheck, false)
+				$$doe(mql, screenCheck, 'change')
+			}
+		}
+		// set_mql(768, 1024, screenCheck)
+
+		set_mql(screenCheck, 600, 768, 1024)
+	</script>
+</html>

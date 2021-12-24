@@ -106,6 +106,7 @@
 						</div>
 
 						<div class="navbar-end pr-5">
+							<a class="navbar-item has-text-white"> React </a>
 							<a class="navbar-item has-text-white"> Javascript </a>
 						</div>
 					</div>
@@ -128,9 +129,11 @@
 								<button
 									class="
 										button
-										is-success is-rounded is-outlined is-size-6 is-size-5-tablet
-									"
-									onclick='window.open("https://elastic-goldwasser-3e6b83.netlify.app/")'
+									has-tooltip-right has-tooltip-warning
+									is-success is-rounded is-outlined is-size-6 is-size-5-tablet
+								"
+								data-tooltip="一発勝負 ❣"
+									onclick='window.open("https://flashcard2.netlify.app")'
 								>
 									サンプル集
 								</button>
@@ -377,13 +380,17 @@
 						</div>
 					</div>
 					<div class="column is-6 has-text-white my-4 pt-4 pr-6 has-text-right">
-						<span class="tag is-danger is-medium mb-3">初めての【 けいさん 】</span>
+						<span class="tag is-danger is-medium mb-3"
+							>初めての【 けいさん 】</span
+						>
 						<div class="mb-6">
 							<button
 								class="
 									button
+									has-tooltip-bottom has-tooltip-warning
 									is-success is-rounded is-outlined is-size-6 is-size-5-tablet
 								"
+								data-tooltip="初めての【 けいさん 】"
 								onclick='window.open("https://affectionate-wozniak-de01a2.netlify.app/")'
 							>
 								サンプル集
@@ -403,6 +410,7 @@
 
 		<script>
 			document.addEventListener('DOMContentLoaded', function () {
+				// MediaQueryList
 				// @media screen and (max-width: 780px) と同じ
 				let mql = window.matchMedia('screen and (max-width: 1023px)')
 				const ms2 = document.querySelector('.ms2')

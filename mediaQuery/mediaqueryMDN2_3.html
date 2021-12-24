@@ -1,0 +1,89 @@
+<!-- https://developer.mozilla.org/ja/docs/Web/API/MediaQueryList -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>MediaQueryList example</title>
+		<style>
+			html {
+				font-family: sans-serif;
+				background-color: white;
+			}
+
+			body {
+				padding: 20px;
+				margin: 10px;
+				background-color: blue;
+				border: 10px solid black;
+			}
+
+			h1,
+			p {
+				text-align: center;
+			}
+
+			p {
+				font-size: 1.3rem;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1>matchMedia test</h1>
+
+		<p></p>
+	</body>
+
+	<script>
+		let para = document.querySelector('p')
+
+		// @media (min-width:768px) and (max-width:1200px) { ... }
+		// @media (min-width:768px) and (max-width:1024px) { ... }
+		// (min-width: 768px) and (max-width: 1024px)
+		// (max-width: 768px)
+		// MediaQueryList, MediaQueryListEvent
+		function screenCheck(m, x) {
+			console.log(x) // 85
+			if (x) {
+				const _x = [...x]
+			}
+			console.log(m) // 87
+			console.log(m.media.match(/[0-9]+/g))
+			const mm = m.media.match(/[0-9]+/g)
+			x1 = +mm[0]
+			x2 = +mm[1] - 1
+
+			if (m.matches) {
+				para.textContent = `(min-width: ${x1}px) and (max-width: ${x2}px)`
+				if (x1 === 768) {
+					document.body.style.backgroundColor = 'green'; return
+				} else {
+					document.body.style.backgroundColor = 'yellow'; return
+				}
+				if (x1 === 600) {
+					document.body.style.backgroundColor = 'red'; return
+				} else {
+					document.body.style.backgroundColor = 'pink'; return
+				}
+			} else {
+				para.textContent = 'OUT'
+				// document.body.style.backgroundColor = 'pink'
+			}
+		}
+
+		function set_mql(screenCheck, ...x) {
+			for (let i = 0; i < x.length - 1; i++) {
+				const mql = window.matchMedia(
+					`(min-width: ${x[i]}px) and (max-width: ${x[i + 1]}px)`
+				)
+				screenCheck(mql, x)
+				mql.addEventListener('change', screenCheck, false)
+			}
+		}
+		// set_mql(768, 1024, screenCheck)
+
+		set_mql(screenCheck, 600, 768, 1024)
+	</script>
+</html>

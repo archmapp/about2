@@ -1,0 +1,34 @@
+
+
+.is-invisible {
+  visibility: hidden !important;
+}
+
+.is-hidden {
+  display: none !important;
+}
+
+
+
+https://johobase.com/bulma-responsive-helpers/
+    Responsive helpers [CSSフレームワーク]
+    Bulma viewportの幅に応じた表示と非表示
+
+クラス	          適用されるスタイル
+is-block	        display: block;
+is-flex	          display: flex;
+is-inline	        display: inline;
+is-inline-block	  display: inline-block;
+is-inline-flex	  display: inline-flex;
+
+
+クラス	          適用されるスタイル
+is-invisible	    visibility: hidden;
+is-hidden	        display: none;
+
+
+https://qiita.com/axcelwork@github/items/2d47b2a49fdec87e7cac
+  https://github.com/axcelwork/axia.js
+  
+
+

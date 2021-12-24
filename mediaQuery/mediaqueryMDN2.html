@@ -1,0 +1,69 @@
+<!-- https://developer.mozilla.org/ja/docs/Web/API/MediaQueryList -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>MediaQueryList example</title>
+		<style>
+			html {
+				font-family: sans-serif;
+				background-color: white;
+			}
+
+			body {
+				padding: 20px;
+				margin: 10px;
+				/* background-color: blue; */
+				border: 10px solid black;
+			}
+
+			h1,
+			p {
+				text-align: center;
+			}
+
+			p {
+				font-size: 1.3rem;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1>matchMedia test</h1>
+
+		<p></p>
+	</body>
+
+	<script>
+		let para = document.querySelector('p')
+
+		// MediaQueryList, MediaQueryListEvent
+		function screenCheck(m) {
+			console.log(m)
+			if (m.matches) {
+				/* the viewport is 600 pixels wide or less */
+				para.textContent = 'This is a narrow screen — less than 768px wide.'
+				document.body.style.backgroundColor = 'red'
+			} else {
+				/* the viewport is more than than 600 pixels wide */
+				para.textContent = 'This is a middle screen — more than 768px wide.'
+				document.body.style.backgroundColor = 'pink'
+			}
+		}
+
+		let mql = window.matchMedia('(max-width: 768px)')
+		screenCheck(mql)
+		mql.addEventListener('change', screenCheck, false)
+
+		// 768
+		// let mql768 = window.matchMedia('(max-width: 768px)')
+		// screenTest768(mql768)
+		// mql768.addEventListener('change', screenTest, false)
+
+		// mql.onchange = function () {
+		// 	console.log(mql)
+		// }
+	</script>
+</html>

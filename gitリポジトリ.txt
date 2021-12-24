@@ -1,0 +1,55 @@
+https://qiita.com/zhao-xy/items/a35add58575ef7d9d4dc
+
+方法1
+$ git config --get remote.origin.url
+～～～ https://github.com/archmapp/about2.git
+git@github.com:ruby/ruby.git
+方法2
+$ git remote -v
+origin  git@github.com:ruby/ruby.git (fetch)
+origin  git@github.com:ruby/ruby.git (push)
+方法3
+$ git remote show -n origin
+* remote origin
+  Fetch URL: git@github.com:ruby/ruby.git
+  Push  URL: git@github.com:ruby/ruby.git
+  HEAD branch: (not queried)
+  Local ref configured for 'git push' (status not queried):
+    (matching) pushes to (matching)
+
+方法4
+$ git remote show origin
+* remote origin
+  Fetch URL: git@github.com:ruby/ruby.git
+  Push  URL: git@github.com:ruby/ruby.git
+  HEAD branch: trunk
+  Remote branches:
+    ruby_1_3   new (next fetch will store in remotes/origin)
+    ruby_1_4   new (next fetch will store in remotes/origin)
+....
+方法5
+$ cat .git/config
+>type .git\config
+[core]
+        repositoryformatversion = 0
+        filemode = false
+        bare = false
+        logallrefupdates = true
+        symlinks = false
+        ignorecase = true
+[remote "origin"]
+        fetch = +refs/heads/*:refs/remotes/origin/*
+        url = git@github.com:ruby/ruby.git
+方法6
+$ git config -l
+...
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+remote.origin.url=git@github.com:ruby/ruby.git
+なお、git helpを活用すれば、何でも調査できる。例
+
+$ git remote show --help
+
+usage: git remote show [<options>] <name>
+
+    -n do not query remotes
+
